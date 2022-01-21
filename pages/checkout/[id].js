@@ -4,7 +4,7 @@ import {ButtonCheckout} from '../../component/Buttons'
 import {PopupSuccessPay} from '../../component/Popups';
 import {PayPalButtons, PayPalScriptProvider} from '@paypal/react-paypal-js';
 
-function checkoutPage({plan}) {
+function CheckoutPage({plan}) {
     const planImage = plan.data.attributes.categories.data[0].attributes.image.data.attributes.url;
     const [paymentMethod, setPaymentMethod] = useState('CARD');
     const [email, setEmail] = useState('');
@@ -135,7 +135,7 @@ function checkoutPage({plan}) {
     )
 }
 
-export default checkoutPage;
+export default CheckoutPage;
 
 export async function getStaticPaths() {
     const res = await fetch('http://localhost:1337/api/plans');

@@ -8,7 +8,9 @@ function CustomPage({page}) {
                 <div key={p.id}>
                     <h1 style={{textAlign: 'center'}}>{p.attributes.title}</h1>
                     <div>
-                        <ReactMarkDown children={p.attributes.content} />
+                        <ReactMarkDown>
+                            {p.attributes.content}
+                        </ReactMarkDown>
                     </div>
                 </div>
             ))}
