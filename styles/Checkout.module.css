@@ -1,0 +1,114 @@
+.checkoutPage{
+    text-align: center;
+}
+.checkoutPage h1{
+    text-align: center;
+}
+.boxCheckout{
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    display: inline-block;
+    width: 700px;
+}
+.boxCheckout h2{
+    margin-top: 0;
+}
+.cardInfo{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 25px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--primary);
+    margin-bottom: 15px;
+}
+.cardInfo img{
+    width: 50px;
+    height: 50px;
+}
+.containerInput{
+    position: relative;
+}
+.containerInput img{
+    position: absolute;
+    top: 40%;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    transform: translateY(-50%);
+}
+.inputText{
+    width: 100%;
+    padding: 16px;
+    padding-right: 50px;
+    border: 1.5px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    font-size: 20px;
+    outline: 0;
+    border-radius: 5px;
+}
+.inputText:focus{
+    border: 1.5px solid var(--primary);
+}
+.payments p{
+    position: relative;
+    padding: 15px;
+    padding-right: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.payments p img{
+    width: 50px;
+    height: auto;
+    margin-left: 20px;
+}
+.payments p::before{
+    content: ' ';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: 0.2s ease-in-out;
+}
+.payments p::after{
+    content: ' ';
+    position: absolute;
+    right: 17.5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--primary);
+    transition: 0.2s ease-in-out;
+}
+.payments p.active{
+    border: 1px solid var(--primary);
+}
+.payments p.active::before{
+    border: 1px solid var(--primary);
+}
+.payments p.active::after{
+    width: 12px;
+    height: 12px;
+}
+
+@media (max-width: 768px){
+    .boxCheckout{
+        width: 100%;
+        box-shadow: unset;
+    }
+}

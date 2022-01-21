@@ -1,0 +1,61 @@
+.title{
+    margin-top: 0;
+    font-size: 40px;
+}
+.svg svg{
+    width: 700px;
+    height: 600px;
+}
+.card{
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+    margin-top: 20px;
+    border-radius: 15px;
+}
+.card img{
+    width: 80px;
+    height: 80px;
+}
+.card div{
+    margin-right: 20px;
+}
+.stepsSection{
+    text-align: center;
+    min-height: 80vh;
+}
+.stepsTitle{
+    margin: 25px 0;
+    text-align: center;
+}
+.steps svg{
+    max-width: 100%;
+    height: auto;
+}
+.containerSvg svg{
+    width: 500px;
+    height: 500px;
+}
+
+@media (max-width: 1230px){
+    .svg svg{
+        width: 100%;
+        height: auto;
+    }
+}
+@media (max-width: 900px){
+    .title{
+        margin-top: 80px;
+        font-size: 40px;
+    }
+    .containerSvg{
+        width: 100%;
+        text-align: center;
+    }
+    .containerSvg svg{
+        width: 100%;
+        height: auto;
+    }
+    
+}
