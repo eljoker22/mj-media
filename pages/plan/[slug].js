@@ -4,22 +4,25 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import { CardPlan } from '../../component/Cards';
 import { ButtonFilter } from '../../component/Buttons';
+
 export default function PlansPage({category}) {
     const cat = category.data;
-    const plans = cat[0].attributes.plans.data;
+    const plans = cat[0] ? cat[0].attributes.plans.data : [];
     const [types, setTypes] = useState([]);
     const [activeType, setActiveType] = useState(null);
     useEffect(() => {
-        const typeArr = [];
-        plans.forEach((plan) => {
-            let typeName = plan.attributes.types.data.attributes.name;
-            if (!typeArr.includes(typeName)) {
-                typeArr.push(typeName);
-            }
-        })
-        console.log(typeArr);
-        setActiveType(typeArr[0]);
-        setTypes(typeArr);
+        if (plans.length > 0) {
+            const typeArr = [];
+            plans.forEach((plan) => {
+                let typeName = plan.attributes.types.data.attributes.name;
+                if (!typeArr.includes(typeName)) {
+                    typeArr.push(typeName);
+                }
+            })
+            console.log(typeArr);
+            setActiveType(typeArr[0]);
+            setTypes(typeArr);
+        }
     }, [category])
 
     return(
