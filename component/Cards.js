@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ButtonCard, ButtonSectionCard } from './Buttons'
 
 export function CardSection({title, desc, img, link, color}) {
-    const url = link ? link.replace(' ', '-')  : '';
+    const url = link ? link.split(' ').join('-')  : '';
     return(
         <div className={classes.cardSection}>
             <div className={classes.overlay} style={{background: color}}>
