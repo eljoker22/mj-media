@@ -7,7 +7,7 @@ function Footetr() {
 
     useEffect(() => {
         const getLinks = async () => {
-            const res = await fetch('http://localhost:1337/api/navgetions');
+            const res = await fetch(`https://social-media-shop.herokuapp.com/api/navgetions`);
             const data = await res.json();
             setLinks(data.data);
         } 
@@ -20,7 +20,7 @@ function Footetr() {
                 <div className={classes.logo}><span>MJ</span> Media.</div>
                 <nav>
                     <ul>
-                    {links.map((link) => (
+                    {links && links.map((link) => (
                         <Link key={link.id} href={link.attributes.link}>
                             <a>
                                 <li>{link.attributes.title}</li>

@@ -21,7 +21,7 @@ function CustomPage({page}) {
 export default CustomPage;
 
 export async function getStaticPaths() {
-    const res = await fetch('http://localhost:1337/api/pages');
+    const res = await fetch(`${process.env.API_URL}/pages`);
     const data = await res.json();
     const paths = data.data.map((page) => {
         return{
@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     const title = context.params.title.replaceAll('-', ' ');
-    const decode = decodeURI(`http://localhost:1337/api/pages?filters[title][$eq]=${title}`);
+    const decode = decodeURI(`${process.env.API_URL}/pages?filters[title][$eq]=${title}`);
     const encode = encodeURI(decode);
     const res = await fetch(encode);
     const page = await res.json();

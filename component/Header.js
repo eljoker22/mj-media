@@ -12,7 +12,7 @@ export default function Header() {
     const mediaQuery = useMediaQuery(`(max-width: 768px)`);
     useEffect(() => {
         const getServices = async () => {
-            const res = await fetch('http://localhost:1337/api/services');
+            const res = await fetch(`https://social-media-shop.herokuapp.com/api/services`);
             const data = await res.json();
             setServices(data)
         }
@@ -79,12 +79,4 @@ export default function Header() {
                 </Container>
             </header>
     )
-}
-
-export async function getStaticProps() {
-    const res = await fetch('http://localhost:1337/api/services');
-    const data = await res.json();
-    return{
-        props: {services: data}
-    }
 }

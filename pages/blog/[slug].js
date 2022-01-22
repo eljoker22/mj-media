@@ -24,7 +24,7 @@ function SinglePost({post}) {
 export default SinglePost;
 
 export async function getStaticPaths() {
-    const res = await fetch('http://localhost:1337/api/posts');
+    const res = await fetch(`${process.env.API_URL}/posts`);
     const data = await res.json();
     const paths = data.data.map((post) => {
         return{ 
@@ -39,7 +39,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     const slug = context.params.slug.replaceAll('-', ' ');
-    const url = `http://localhost:1337/api/posts?filters[title][$eq]=${slug}&populate=thumbnail`;
+    const url = `${process.env.API_URL}/posts?filters[title][$eq]=${slug}&populate=thumbnail`;
     const decode = decodeURI(url);
     const encode = encodeURI(decode);
     const res = await fetch(encode);

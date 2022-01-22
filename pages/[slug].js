@@ -64,7 +64,7 @@ export default function PlansPage({category}) {
 }
 
 export async function getStaticPaths() {
-    const res = await fetch('http://localhost:1337/api/categories');
+    const res = await fetch(`${process.env.API_URL}/categories`);
     const cats = await res.json();
 
     const paths = cats.data.map((cat) => {
@@ -80,7 +80,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     const slug = context.params.slug.replaceAll('-', ' ');
-    const urlApi = `http://localhost:1337/api/categories?filters[slug][$eq]=${slug}&populate[plans][sort]=price:asc&populate[plans][populate]=types&populate=image`;
+    const urlApi = `${process.env.API_URL}/categories?filters[slug][$eq]=${slug}&populate[plans][sort]=price:asc&populate[plans][populate]=types&populate=image`;
     const url = decodeURI(urlApi);
     const urlEn = encodeURI(url);
     const res = await fetch(urlEn);

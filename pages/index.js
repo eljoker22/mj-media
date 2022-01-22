@@ -74,7 +74,7 @@ export default function Home({services}) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`http://localhost:1337/api/services?populate=icon`);
+  const res = await fetch(`${process.env.API_URL}/services?populate=icon`);
   const data = await res.json();
 
   return{

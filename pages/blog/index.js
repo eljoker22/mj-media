@@ -32,7 +32,7 @@ function Blog({posts}) {
 export default Blog;
 
 export async function getStaticProps() {
-    const res = await fetch('http://localhost:1337/api/posts?populate=Date,thumbnail');
+    const res = await fetch(`${process.env.API_URL}/posts?populate=Date,thumbnail`);
     const data = await res.json();
     return{
         props: {posts: data}

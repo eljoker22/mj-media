@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     const {body} = req;
     try{
         if (req.method === 'POST') {
-            const createOrder = await fetch('http://localhost:1337/api/orders', {
+            const createOrder = await fetch(`${process.env.API_URL}/orders`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

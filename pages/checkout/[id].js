@@ -138,7 +138,7 @@ function CheckoutPage({plan}) {
 export default CheckoutPage;
 
 export async function getStaticPaths() {
-    const res = await fetch('http://localhost:1337/api/plans');
+    const res = await fetch(`${process.env.API_URL}/plans`);
     const allPlans = await res.json();
     const paths = allPlans.data.map((plan) => {
         return {
@@ -154,7 +154,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     const id = context.params.id;
-    const res = await fetch(`http://localhost:1337/api/plans/${id}?populate[categories][populate]=image`);
+    const res = await fetch(`${process.env.API_URL}/plans/${id}?populate[categories][populate]=image`);
     const data = await res.json();
     return{
         props: {
