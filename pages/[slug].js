@@ -1,9 +1,9 @@
 import React, { useEffect , useState } from 'react';
-import classes from '../../styles/Category.module.css';
+import classes from '../styles/Category.module.css';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import { CardPlan } from '../../component/Cards';
-import { ButtonFilter } from '../../component/Buttons';
+import { CardPlan } from '../component/Cards';
+import { ButtonFilter } from '../component/Buttons';
 
 export default function PlansPage({category}) {
     const plans = category.data[0] ? category.data[0].attributes.plans.data : [];
