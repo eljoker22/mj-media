@@ -35,7 +35,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    const title = context.params.title.replace(' ', '-');
+    const title = context.params.title.replace(/-/g, ' ');
     const decode = decodeURI(`${process.env.API_URL}/pages?filters[title][$eq]=${title}`);
     const encode = encodeURI(decode);
     const res = await fetch(encode);

@@ -38,7 +38,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    const slug = context.params.slug.replace(' ', '-');
+    const slug = context.params.slug.replace(/-/g, ' ');
     const url = `${process.env.API_URL}/posts?filters[title][$eq]=${slug}&populate=thumbnail`;
     const decode = decodeURI(url);
     const encode = encodeURI(decode);
