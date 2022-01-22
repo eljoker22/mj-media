@@ -12,7 +12,7 @@ function Blog({posts}) {
             <Grid container spacing={3}>
             {posts.data.map((post) => (
                 <Grid key={post.id} item xs={12} sm={6} md={4}>
-                    <Link href={`/blog/${post.attributes.title.replaceAll(' ', '-')}`}>
+                    <Link href={`/blog/${post.attributes.title.replace(' ' ,'-')}`}>
                         <a>
                         <div className={classes.post}>
                             <img src={post.attributes.thumbnail.data.attributes.formats.small.url} />
