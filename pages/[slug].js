@@ -69,7 +69,7 @@ export async function getStaticPaths() {
 
     const paths = cats.data.map((cat) => {
         return{ 
-            params: {slug: cat.attributes.slug.replaceAll(' ', '-').toString()},
+            params: {slug: cat.attributes.slug.toString().replaceAll(' ', '-')},
         }
     })
     return{
