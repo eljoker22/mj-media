@@ -69,7 +69,7 @@ export async function getStaticPaths() {
 
     const paths = cats.data.map((cat) => {
         return{ 
-            params: {slug: cat.attributes.slug.replace(' ', '-').toString()},
+            params: {slug: cat.attributes.slug.split(' ').join('-').toString()},
         }
     })
     return{
@@ -79,7 +79,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    const slug = context.params.slug.replace(/-/g, ' ');
+    const slug = context.params.slug.split('-').join(' ');
     const urlApi = `${process.env.API_URL}/categories?filters[slug][$eq]=${slug}&populate[plans][sort]=price:asc&populate[plans][populate]=types&populate=image`;
     const url = decodeURI(urlApi);
     const urlEn = encodeURI(url);

@@ -25,7 +25,7 @@ export async function getStaticPaths() {
     const data = await res.json();
     const paths = data.data.map((page) => {
         return{
-            params: {title: page.attributes.title.replace(' ', '-').toString()},
+            params: {title: page.attributes.title.split(' ').join('-').toString()},
         }
     })
     return{
@@ -35,7 +35,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    const title = context.params.title.replace(/-/g, ' ');
+    const title = context.params.title.split('-').join(' ');
     const decode = decodeURI(`${process.env.API_URL}/pages?filters[title][$eq]=${title}`);
     const encode = encodeURI(decode);
     const res = await fetch(encode);
