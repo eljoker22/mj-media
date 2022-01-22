@@ -37,13 +37,13 @@ export default function Header() {
                     <nav>
                         <ul>
                         {services && services.data.map((service) => (
-                            <Link key={service.id} href={`/${service.attributes.link.replaceAll(' ', '-')}`}>
+                            <Link key={service.id} href={`/${service.attributes.link.replace(' ', '-')}`}>
                                 <a 
                                 className={router.query.slug ? 
-                                    router.query.slug === service.attributes.link.replaceAll(' ', '-') ? 
+                                    router.query.slug === service.attributes.link.replace(' ', '-') ? 
                                     classes.active 
                                     : '' 
-                                : router.pathname.replaceAll('/', '') === service.attributes.link ? classes.active : ''}>
+                                : router.pathname.replace('/', '') === service.attributes.link ? classes.active : ''}>
                                     <li>{service.attributes.name}</li>
                                 </a>
                             </Link>
@@ -62,14 +62,14 @@ export default function Header() {
                 <nav className={active ? classes.active : ''}>
                     <ul>
                         {services && services.data.map((service) => (
-                            <Link key={service.id} href={`/${service.attributes.link.replaceAll(' ', '-')}`}>
+                            <Link key={service.id} href={`/${service.attributes.link.replace(' ', '-')}`}>
                                 <a 
                                 onClick={() => setActive(false)}
                                 className={router.query.slug ? 
-                                    router.query.slug === service.attributes.link.replaceAll(' ', '-') ? 
+                                    router.query.slug === service.attributes.link.replace(' ', '-') ? 
                                     classes.active 
                                     : '' 
-                                : router.pathname.replaceAll('/', '') === service.attributes.link ? classes.active : ''}>
+                                : router.pathname.replace('/', '') === service.attributes.link ? classes.active : ''}>
                                     <li>{service.attributes.name}</li>
                                 </a>
                             </Link>
