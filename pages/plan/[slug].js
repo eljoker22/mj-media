@@ -6,8 +6,7 @@ import { CardPlan } from '../../component/Cards';
 import { ButtonFilter } from '../../component/Buttons';
 
 export default function PlansPage({category}) {
-    const cat = category.data;
-    const plans = cat[0] ? cat[0].attributes.plans.data : [];
+    const plans = category.data[0] ? category.data[0].attributes.plans.data : [];
     const [types, setTypes] = useState([]);
     const [activeType, setActiveType] = useState(null);
     useEffect(() => {
@@ -27,7 +26,7 @@ export default function PlansPage({category}) {
 
     return(
         <>
-        {cat.map((caty) => {
+        {category.data.map((caty) => {
             return(
                 <div key={caty.attributes.title} className={classes.CategoryPage}>
                     <Container className="page-container" maxWidth="sm" style={{maxWidth: '1200px'}}>
