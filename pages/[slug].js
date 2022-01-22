@@ -18,7 +18,6 @@ export default function PlansPage({category}) {
                     typeArr.push(typeName);
                 }
             })
-            console.log(typeArr);
             setActiveType(typeArr[0]);
             setTypes(typeArr);
         }
