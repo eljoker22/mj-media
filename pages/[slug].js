@@ -6,9 +6,7 @@ import { CardPlan } from '../component/Cards';
 import { ButtonFilter } from '../component/Buttons';
 
 export default function PlansPage({category}) {
-    if (!page) {
-        return <h1>Loading...</h1>
-    }
+
     const plans = category.data[0] ? category.data[0].attributes.plans.data : [];
     const [types, setTypes] = useState([]);
     const [activeType, setActiveType] = useState(null);
@@ -25,6 +23,10 @@ export default function PlansPage({category}) {
             setTypes(typeArr);
         }
     }, [category])
+
+    if (!page) {
+        return <h1>Loading...</h1>
+    }
 
     return(
         <>
