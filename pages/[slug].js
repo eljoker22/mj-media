@@ -94,6 +94,15 @@ export async function getStaticProps(context) {
     const res = await fetch(urlEn);
     const data = await res.json();
     
+    if (!data.data.length > 0) {
+        return{
+            redirect:{
+                destination: '/',
+                permanent: false
+            }
+        }
+    }
+
     return{
         props: {
         category: data
