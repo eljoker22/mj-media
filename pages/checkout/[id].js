@@ -10,7 +10,7 @@ function CheckoutPage({plan}) {
     const [email, setEmail] = useState('');
     const [link, setLink] = useState('');
     const [popup, setPopup] = useState(false);
-    const amount = paln ? plan.data.attributes.price.toFixed(2).toString() : '';
+    const amount = plan ? plan.data.attributes.price.toFixed(2).toString() : '';
     const planName = plan ? plan.data.attributes.title : '';
 
     return(
@@ -148,7 +148,7 @@ export async function getStaticPaths() {
 
     return{
         paths,
-        fallback: false
+        fallback: true
     }
 }
 
