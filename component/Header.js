@@ -4,8 +4,11 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loadingSwitcher } from '../state/actions';
 export default function Header() {
     const router = useRouter();
+    const dispatch = useDispatch();
     const [services, setServices] = useState(null);
     const [sticky, setSticky] = useState(false);
     const [active, setActive] = useState(false);
@@ -26,8 +29,12 @@ export default function Header() {
                 setSticky(false);
             }
         })
-    }, [])
-    console.log(sticky)
+    }, []);
+
+    useEffect(() => {
+        !services ? dispatch(loadingSwitcher(true)) : dispatch(loadingSwitcher(false));
+    }, [services]);
+
     return(
             <header className={`${classes.header} ${sticky ? classes.sticky : ''}`}>
                 <Container maxWidth="sm" style={{maxWidth: '1200px'}}>

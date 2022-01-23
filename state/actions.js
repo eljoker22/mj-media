@@ -5,3 +5,10 @@ export const addToChekout = (id) => {
         id: id
     }
 } 
+
+export const loadingSwitcher = (load) => {
+    const loading = load ? 'LOADING' : 'LOADED';
+    return{
+        type: loading,
+    }
+}
