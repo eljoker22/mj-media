@@ -7,7 +7,7 @@ import { ButtonFilter } from '../component/Buttons';
 
 export default function PlansPage({category}) {
 
-    const plans = category.data[0] ? category.data[0].attributes.plans.data : [];
+    const plans = category && category.data[0] ? category.data[0].attributes.plans.data : [];
     const [types, setTypes] = useState([]);
     const [activeType, setActiveType] = useState(null);
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function PlansPage({category}) {
 
     return(
         <>
-        {category.data.map((caty) => {
+        {category && category.data.map((caty) => {
             return(
                 <div key={caty.attributes.title} className={classes.CategoryPage}>
                     <Container className="page-container" maxWidth="sm" style={{maxWidth: '1200px'}}>
