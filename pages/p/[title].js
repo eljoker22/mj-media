@@ -1,7 +1,9 @@
 import Container from '@mui/material/Container'
 import ReactMarkDown from 'react-markdown';
 function CustomPage({page}) {
-    console.log(page)
+    if (!page) {
+        return <h1>Loading...</h1>
+    }
     return(
         <Container className="page-container" maxWidth="sm" style={{maxWidth: '1200px'}}>
             {page.data.map((p) => (
@@ -30,7 +32,7 @@ export async function getStaticPaths() {
     })
     return{
         paths,
-        fallback: false
+        fallback: true
     }
 }
 
@@ -41,6 +43,7 @@ export async function getStaticProps(context) {
     const res = await fetch(encode);
     const page = await res.json();
     return{
-        props: {page: page}
+        props: {page: page},
+        revalidate: 1
     }
 }

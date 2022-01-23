@@ -3,7 +3,9 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import Link from 'next/link';
 function Blog({posts}) {
-    console.log(posts);
+    if (!posts) {
+        return <h1>Loading...</h1>
+    }
     return(
         <Container className="page-container" maxWidth="sm" style={{maxWidth: '1200px'}}>
             <div style={{textAlign: 'center'}}>
@@ -35,6 +37,7 @@ export async function getStaticProps() {
     const res = await fetch(`${process.env.API_URL}/posts?populate=Date,thumbnail`);
     const data = await res.json();
     return{
-        props: {posts: data}
+        props: {posts: data},
+        revalidate: 1
     }
 }

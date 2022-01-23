@@ -2,7 +2,9 @@ import classes from '../../styles/Blog.module.css';
 import Container from '@mui/material/Container';
 import ReactMarkDown from 'react-markdown';
 function SinglePost({post}) {
-    console.log(post);
+    if (!post) {
+        return <h1>Loading...</h1>
+    }
     return(
         <Container className="page-container" maxWidth="sm" style={{maxWidth: '1200px'}}>
             {post.data.map((p) => (
@@ -33,7 +35,7 @@ export async function getStaticPaths() {
     })
     return{
         paths,
-        fallback: false
+        fallback: true
     }
 }
 
@@ -46,6 +48,7 @@ export async function getStaticProps(context) {
     const post = await res.json();
 
     return{
-        props: {post: post}
+        props: {post: post},
+        revalidate: 1
     }
 }

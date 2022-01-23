@@ -6,6 +6,9 @@ import { CardPlan } from '../component/Cards';
 import { ButtonFilter } from '../component/Buttons';
 
 export default function PlansPage({category}) {
+    if (!page) {
+        return <h1>Loading...</h1>
+    }
     const plans = category.data[0] ? category.data[0].attributes.plans.data : [];
     const [types, setTypes] = useState([]);
     const [activeType, setActiveType] = useState(null);
@@ -75,7 +78,7 @@ export async function getStaticPaths() {
     })
     return{
         paths,
-        fallback: false
+        fallback: true
     }
 }
 
@@ -90,6 +93,7 @@ export async function getStaticProps(context) {
     return{
         props: {
         category: data
-        }
+        },
+        revalidate: 1
     }
 }
