@@ -36,7 +36,7 @@ export default function PlansPage({category}) {
                     <Container className="page-container" maxWidth="sm" style={{maxWidth: '1200px'}}>
                         <h1>{caty.attributes.title}</h1>
                         <div style={{textAlign: 'center'}}>
-                            {types.map((type) => (
+                            {plans.length > 0 && types.map((type) => (
                                 <a key={type} onClick={() => setActiveType(type)}>
                                 <ButtonFilter active={type === activeType ? true : false}>
                                     {type}
@@ -45,7 +45,7 @@ export default function PlansPage({category}) {
                             ))}
                         </div>
                         <Grid container spacing={3} style={{margin: '20px 0'}}>
-                            {plans.map(plan => {
+                            {plans.length > 0 ? plans.map(plan => {
                                 const active = plan.attributes.types.data.attributes.name === activeType ? true : false;
                                 
                                 return active && <Grid key={plan.id} item xs={12} sm={12} md={3}>
@@ -59,7 +59,9 @@ export default function PlansPage({category}) {
                                                     active={active}
                                                     />
                                                 </Grid>
-                            })}
+                            })
+                            : 
+                            <h3>لا توجد باقات فى الوقت الحالى ولكن ستضاف قريبا.</h3>}
                         </Grid>
                     </Container>
                 </div>
