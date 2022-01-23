@@ -157,7 +157,7 @@ export async function getStaticProps(context) {
     const res = await fetch(`${process.env.API_URL}/plans/${id}?populate[categories][populate]=image`);
     const data = await res.json();
     
-    if (!data.data.length > 0) {
+    if (!data.data) {
         return{
             notFound: true,
         }
