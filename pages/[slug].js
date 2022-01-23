@@ -25,7 +25,7 @@ export default function PlansPage({category}) {
     }, [category])
 
     if (!category) {
-        return <h1>Loading...</h1>
+        return;
     }
 
     return(
