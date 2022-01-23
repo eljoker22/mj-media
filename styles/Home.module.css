@@ -58,6 +58,8 @@
     }
     .cardHowWork img{
         margin-right: -60px;
+        width: 100%;
+        height: auto;
     }
     .cardHowWork h3{
         font-size: 18px;
@@ -74,6 +76,15 @@
     }
     .cardHowWork img{
         margin-right: -40px;
+    }
+    .cardHowWork h3{
+        font-size: 14px;
+    }
+}
+@media (max-width: 410px){
+    .cardHowWork img{
+        margin-right: -90px;
+        width: 80%;
     }
     .cardHowWork h3{
         font-size: 14px;
