@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import { CardPlan } from '../component/Cards';
 import { ButtonFilter } from '../component/Buttons';
 
+
 export default function PlansPage({category}) {
 
     const plans = category && category.data[0] ? category.data[0].attributes.plans.data : [];
@@ -25,7 +26,7 @@ export default function PlansPage({category}) {
     }, [category])
 
     if (!category) {
-        return;
+        return ' ';
     }
 
     return(
