@@ -96,10 +96,7 @@ export async function getStaticProps(context) {
     
     if (!data.data.length > 0) {
         return{
-            redirect:{
-                destination: '/',
-                permanent: false
-            }
+            notFound: true,
         }
     }
 

@@ -148,7 +148,7 @@ export async function getStaticPaths() {
 
     return{
         paths,
-        fallback: false
+        fallback: true
     }
 }
 
@@ -156,6 +156,13 @@ export async function getStaticProps(context) {
     const id = context.params.id;
     const res = await fetch(`${process.env.API_URL}/plans/${id}?populate[categories][populate]=image`);
     const data = await res.json();
+    
+    if (!data.data.length > 0) {
+        return{
+            notFound: true,
+        }
+    }
+
     return{
         props: {
             plan: data

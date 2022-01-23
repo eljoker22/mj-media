@@ -46,6 +46,12 @@ export async function getStaticProps(context) {
     const encode = encodeURI(decode);
     const res = await fetch(encode);
     const post = await res.json();
+    
+    if (!post.data.length > 0) {
+        return{
+            notFound: true,
+        }
+    }
 
     return{
         props: {post: post},

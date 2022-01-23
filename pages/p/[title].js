@@ -42,6 +42,13 @@ export async function getStaticProps(context) {
     const encode = encodeURI(decode);
     const res = await fetch(encode);
     const page = await res.json();
+    
+    if (!page.data.length > 0) {
+        return{
+            notFound: true,
+        }
+    }
+
     return{
         props: {page: page},
         revalidate: 1
