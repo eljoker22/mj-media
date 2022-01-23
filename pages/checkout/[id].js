@@ -5,14 +5,17 @@ import {PopupSuccessPay} from '../../component/Popups';
 import {PayPalButtons, PayPalScriptProvider} from '@paypal/react-paypal-js';
 
 function CheckoutPage({plan}) {
-    const planImage = plan.data.attributes.categories.data[0].attributes.image.data.attributes.url;
+    const planImage = plan && plan.data.attributes.categories.data[0].attributes.image.data.attributes.url;
     const [paymentMethod, setPaymentMethod] = useState('CARD');
     const [email, setEmail] = useState('');
     const [link, setLink] = useState('');
     const [popup, setPopup] = useState(false);
-    const amount = plan.data.attributes.price.toFixed(2).toString();
-    const planName = plan.data.attributes.title;
+    const amount = plan && plan.data.attributes.price.toFixed(2).toString();
+    const planName = paln && plan.data.attributes.title;
     
+    if (!plan) {
+        return;
+    }
     return(
         <div className="page-container">
             <div className={classes.checkoutPage}>
