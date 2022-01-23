@@ -12,128 +12,125 @@ function CheckoutPage({plan}) {
     const [popup, setPopup] = useState(false);
     const amount = plan && plan.data.attributes.price.toFixed(2).toString();
     const planName = paln && plan.data.attributes.title;
-    
-    if (!plan) {
-        return;
-    }
+
     return(
         <div className="page-container">
-            <div className={classes.checkoutPage}>
-            <div className={classes.boxCheckout}>
-                <h2>تفاصيل الطلب</h2>
-                <p className={classes.cardInfo}>
-                    <span>
-                        {planName}
-                    </span>
-                    <img src={planImage} />
-                </p>
-                <p className={classes.cardInfo}>
-                    <span> 
-                        {plan.data.attributes.arab_follower ? 'عرب فقط' : 'من جميع انحاء العالم'}
-                    </span>
-                    <img src="/icons/location.png" />
-                </p>
-                <p className={classes.cardInfo}>
-                    <span>
-                        ${plan.data.attributes.price}
-                    </span>
-                    <img src="/icons/dollar.png" />
-                </p>
+            {plan && <div className={classes.checkoutPage}>
+        <div className={classes.boxCheckout}>
+            <h2>تفاصيل الطلب</h2>
+            <p className={classes.cardInfo}>
+                <span>
+                    {planName}
+                </span>
+                <img src={planImage} />
+            </p>
+            <p className={classes.cardInfo}>
+                <span> 
+                    {plan.data.attributes.arab_follower ? 'عرب فقط' : 'من جميع انحاء العالم'}
+                </span>
+                <img src="/icons/location.png" />
+            </p>
+            <p className={classes.cardInfo}>
+                <span>
+                    ${plan.data.attributes.price}
+                </span>
+                <img src="/icons/dollar.png" />
+            </p>
 
-                <h3>ادخل معلومات الطلب</h3>
-                <form>
-                    <div className={classes.containerInput}>
-                        <img src="/icons/link-input.png" />
-                        <input 
-                        type="text" 
-                        className={classes.inputText}
-                        placeholder='ادخل الرابط'
-                        onChange={(e) => setLink(e.target.value)}
-                        />
-                    </div>
-                    <div className={classes.containerInput}>
-                        <img src="/icons/email.png" />
-                        <input 
-                        type="text" 
-                        className={classes.inputText}
-                        placeholder='البريد الألكترونى'
-                        onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div className={classes.payments}>
-                    <h3>اختر وسيلة دفع</h3>
-                    <p 
-                    className={paymentMethod === 'CARD' ? classes.active : ''}
-                    onClick={() => setPaymentMethod('CARD')}>
-                        <img src="/icons/visa.png" />
-                        <span>فيزا أو ماستركارد</span>
-                    </p>
-                    <p 
-                    className={paymentMethod === 'PAYPAL' ? classes.active : ''}
-                    onClick={() => setPaymentMethod('PAYPAL')}>
-                        <img src="/icons/paypal.png" />
-                        <span>بايبال</span>
-                    </p>
-                    </div>
-                    {paymentMethod === 'CARD' &&
-                    <ButtonCheckout>
-                        الدفع
-                    </ButtonCheckout>
-                    }
-                </form>
-                {paymentMethod === 'PAYPAL' &&
-                <PayPalScriptProvider options={{
-                    "client-id": "AXH_cpLK8MbWtNNhc-s5_AamEJCyQ_FfwCZ-J7aaOGIEhwjcx6uJTJYEOMBPRHJ9aY7JKGcUdl-21Ffh",
-                    "disable-funding": "credit,card"
-                    }}>
-                    <PayPalButtons
-                        style={{"layout":"vertical","color":"blue","height":55,"shape": "pill"}}
-                        createOrder={(data, actions) => {
-                            return actions.order.create({
-                                purchase_units: [
-                                    {
-                                        amount: {
-                                            value: amount,
-                                        }
-                                    }
-                                ]
-                            }).then((orderId) => {
-                                return orderId;
-                            })
-                        }}
-                        onApprove={(data, actions) => {
-                            return actions.order.capture().then((details) => {
-                                const name = details.payer.name.given_name;
-                                const amountPay = details.purchase_units[0].amount.value;
-                                const currency = details.purchase_units[0].amount.currency_code;    
-                                const status = details.status === 'COMPLETED' ? true : false;
-                                
-                                fetch('/api/createOrder', {
-                                    method: 'post',
-                                    body: JSON.stringify({
-                                        data: {
-                                            orderId: data.orderID.toString(),
-                                            plan: planName,
-                                            clinetName: name,
-                                            email: email,
-                                            link: link,
-                                            payment: paymentMethod,
-                                            price: amountPay,
-                                            currency: currency,
-                                            completed: status,
-                                        }
-                                    })
-                                })
-                                console.log(data);
-                                console.log(details);
-                            }).then(() => setPopup(true))
-                        }}
+            <h3>ادخل معلومات الطلب</h3>
+            <form>
+                <div className={classes.containerInput}>
+                    <img src="/icons/link-input.png" />
+                    <input 
+                    type="text" 
+                    className={classes.inputText}
+                    placeholder='ادخل الرابط'
+                    onChange={(e) => setLink(e.target.value)}
                     />
-                </PayPalScriptProvider>
+                </div>
+                <div className={classes.containerInput}>
+                    <img src="/icons/email.png" />
+                    <input 
+                    type="text" 
+                    className={classes.inputText}
+                    placeholder='البريد الألكترونى'
+                    onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className={classes.payments}>
+                <h3>اختر وسيلة دفع</h3>
+                <p 
+                className={paymentMethod === 'CARD' ? classes.active : ''}
+                onClick={() => setPaymentMethod('CARD')}>
+                    <img src="/icons/visa.png" />
+                    <span>فيزا أو ماستركارد</span>
+                </p>
+                <p 
+                className={paymentMethod === 'PAYPAL' ? classes.active : ''}
+                onClick={() => setPaymentMethod('PAYPAL')}>
+                    <img src="/icons/paypal.png" />
+                    <span>بايبال</span>
+                </p>
+                </div>
+                {paymentMethod === 'CARD' &&
+                <ButtonCheckout>
+                    الدفع
+                </ButtonCheckout>
                 }
-            </div>
-            {popup && <PopupSuccessPay setPopup={setPopup} open={popup} />}
-            </div>
+            </form>
+            {paymentMethod === 'PAYPAL' &&
+            <PayPalScriptProvider options={{
+                "client-id": "AXH_cpLK8MbWtNNhc-s5_AamEJCyQ_FfwCZ-J7aaOGIEhwjcx6uJTJYEOMBPRHJ9aY7JKGcUdl-21Ffh",
+                "disable-funding": "credit,card"
+                }}>
+                <PayPalButtons
+                    style={{"layout":"vertical","color":"blue","height":55,"shape": "pill"}}
+                    createOrder={(data, actions) => {
+                        return actions.order.create({
+                            purchase_units: [
+                                {
+                                    amount: {
+                                        value: amount,
+                                    }
+                                }
+                            ]
+                        }).then((orderId) => {
+                            return orderId;
+                        })
+                    }}
+                    onApprove={(data, actions) => {
+                        return actions.order.capture().then((details) => {
+                            const name = details.payer.name.given_name;
+                            const amountPay = details.purchase_units[0].amount.value;
+                            const currency = details.purchase_units[0].amount.currency_code;    
+                            const status = details.status === 'COMPLETED' ? true : false;
+                            
+                            fetch('/api/createOrder', {
+                                method: 'post',
+                                body: JSON.stringify({
+                                    data: {
+                                        orderId: data.orderID.toString(),
+                                        plan: planName,
+                                        clinetName: name,
+                                        email: email,
+                                        link: link,
+                                        payment: paymentMethod,
+                                        price: amountPay,
+                                        currency: currency,
+                                        completed: status,
+                                    }
+                                })
+                            })
+                            console.log(data);
+                            console.log(details);
+                        }).then(() => setPopup(true))
+                    }}
+                />
+            </PayPalScriptProvider>
+            }
+        </div>
+        {popup && <PopupSuccessPay setPopup={setPopup} open={popup} />}
+        </div>}
         </div>
     )
 }
