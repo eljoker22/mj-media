@@ -14,6 +14,9 @@
     margin-top: 20px;
     border-radius: 15px;
 }
+.btnCont{
+    display: flex;
+}
 .card img{
     width: 80px;
     height: 80px;
@@ -58,4 +61,14 @@
         height: auto;
     }
     
+}
+@media (max-width: 450px){
+    .btnCont{
+        display: block;
+    }
+    .btnCont button{
+        width: 100%;
+        margin-bottom: 15px;
+        justify-content: center;
+    }
 }

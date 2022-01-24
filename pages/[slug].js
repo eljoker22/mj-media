@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import { CardPlan } from '../component/Cards';
 import { ButtonFilter } from '../component/Buttons';
+import Head from 'next/head';
 
 
 export default function PlansPage({category}) {
@@ -33,7 +34,56 @@ export default function PlansPage({category}) {
     return(
         <>
         {category && category.data.map((caty) => {
+            const urlPage = `https://mj-media.vercel.app/${caty.attributes.title.split(' ').join('-')}`;
             return(
+                <>
+                <Head>
+                    <title>MJ Media - {caty.attributes.titleSeo}</title>
+                    <meta
+                        name="description"
+                        content={caty.attributes.descreption}
+                    />
+                    <link rel="canonical" href={urlPage} />
+                    {/* facebook */}
+                    <meta property="og:type" content="website" />
+                    <meta property="og:url" content={urlPage} />
+                    <meta
+                        property="og:title"
+                        content={`MJ MEDIA - ${caty.attributes.titleSeo}`}
+                    />
+                    <meta
+                        property="og:description"
+                        content={caty.attributes.descreption}
+                    />
+                    <meta 
+                        property="og:image"
+                        content="https://res.cloudinary.com/jokermo/image/upload/v1642886046/phil_desforges_Hxp_x_D_Xs_O_Ss_unsplash_3bb82b709b.jpg"
+                    />
+                    <meta 
+                        property="og:site_name" 
+                        content="MJ Media" 
+                    />
+                    {/* twitter */}
+                    <meta property="twitter:card" content="summary_large_image" />
+                    <meta property="twitter:url" content={urlPage} />
+                    <meta
+                        property="twitter:title"
+                        content={`MJ MEDIA - ${caty.attributes.titleSeo}`}
+                    />
+                    <meta
+                        property="twitter:description"
+                        content={caty.attributes.descreption}
+                    />
+                    <meta 
+                        property="twitter:image"
+                        content="https://res.cloudinary.com/jokermo/image/upload/v1642886046/phil_desforges_Hxp_x_D_Xs_O_Ss_unsplash_3bb82b709b.jpg"
+                    />
+                    <meta 
+                        name="twitter:site" 
+                        content="MJ Media" 
+                    />
+                </Head>
+
                 <div key={caty.attributes.title} className={classes.CategoryPage}>
                     <Container className="page-container" maxWidth="sm" style={{maxWidth: '1200px'}}>
                         <h1>{caty.attributes.title}</h1>
@@ -88,7 +138,8 @@ export default function PlansPage({category}) {
                         </Grid>
                     </Container>
                 </div>
-            ) 
+                </>
+            )
         })}
         </>
     )

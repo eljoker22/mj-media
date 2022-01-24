@@ -22,25 +22,25 @@ function CheckoutPage({plan}) {
                 <span>
                     {planName}
                 </span>
-                <img src={planImage} />
+                <img src={planImage} alt="plan" />
             </p>
             <p className={classes.cardInfo}>
                 <span> 
                     {plan.data.attributes.arab_follower ? 'عرب فقط' : 'من جميع انحاء العالم'}
                 </span>
-                <img src="/icons/location.png" />
+                <img src="/icons/location.png" alt="location" />
             </p>
             <p className={classes.cardInfo}>
                 <span>
                     ${plan.data.attributes.price}
                 </span>
-                <img src="/icons/dollar.png" />
+                <img src="/icons/dollar.png" alt="price" />
             </p>
 
             <h3>ادخل معلومات الطلب</h3>
             <form>
                 <div className={classes.containerInput}>
-                    <img src="/icons/link-input.png" />
+                    <img src="/icons/link-input.png" alt="url" />
                     <input 
                     type="text" 
                     className={classes.inputText}
@@ -49,7 +49,7 @@ function CheckoutPage({plan}) {
                     />
                 </div>
                 <div className={classes.containerInput}>
-                    <img src="/icons/email.png" />
+                    <img src="/icons/email.png" alt="email" />
                     <input 
                     type="text" 
                     className={classes.inputText}
@@ -62,13 +62,13 @@ function CheckoutPage({plan}) {
                 <p 
                 className={paymentMethod === 'CARD' ? classes.active : ''}
                 onClick={() => setPaymentMethod('CARD')}>
-                    <img src="/icons/visa.png" />
+                    <img src="/icons/visa.png" alt="visa" />
                     <span>فيزا أو ماستركارد</span>
                 </p>
                 <p 
                 className={paymentMethod === 'PAYPAL' ? classes.active : ''}
                 onClick={() => setPaymentMethod('PAYPAL')}>
-                    <img src="/icons/paypal.png" />
+                    <img src="/icons/paypal.png" alt="paypal" />
                     <span>بايبال</span>
                 </p>
                 </div>

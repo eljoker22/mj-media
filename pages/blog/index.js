@@ -17,7 +17,10 @@ function Blog({posts}) {
                     <Link href={`/blog/${post.attributes.title.split(' ').join('-')}`}>
                         <a>
                         <div className={classes.post}>
-                            <img src={post.attributes.thumbnail.data.attributes.formats.small.url} />
+                            <img 
+                                src={post.attributes.thumbnail.data.attributes.formats.small.url} 
+                                alt={post.attributes.title}
+                            />
                             <div>
                                 <h3>{post.attributes.title}</h3>
                             </div>

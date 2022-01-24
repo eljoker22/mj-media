@@ -7,29 +7,79 @@ import SvgMarkting from '../assest/svg/Marketing_Two Color.svg';
 import SvgTarget from '../assest/svg/Target audience _Two Color.svg';
 import SvgContact from '../assest/svg/New Message_Two Color.svg';
 import { ButtonSocial } from '../component/Buttons'
+import Head from 'next/head';
+
 function MarktingPage() {
     return(
+        <>
+        <Head>
+            <title>MJ Media - انشأ حملتك الأعلانية الأن!</title>
+            <meta
+                name="description"
+                content="زيادة متابعيك وجمهورك على وسائل التواصل الأجتماعى!
+                روج لحسابك الاجتماعي و احصل على أقصى نمو على حسابات وسائل التواصل الاجتماعي الخاصة بك عن طريق زيادة متابعيك وإنشاء الحملات الأعلانية على فيس بوك وانستجرام و جوجل."
+            />
+            <link rel="canonical" href="https://mj-media.vercel.app/markting" />
+            {/* facebook */}
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://mj-media.vercel.app/" />
+            <meta
+                property="og:title"
+                content="MJ Media"
+            />
+            <meta
+                property="og:description"
+                content="لبيع خدمات منصات التواصل الأجنماعى"
+            />
+            <meta 
+                property="og:image"
+                content="https://res.cloudinary.com/jokermo/image/upload/v1642886046/phil_desforges_Hxp_x_D_Xs_O_Ss_unsplash_3bb82b709b.jpg"
+            />
+            <meta 
+                property="og:site_name" 
+                content="MJ Media" 
+            />
+            {/* twitter */}
+            <meta property="twitter:card" content="summary_large_image" />
+            <meta property="twitter:url" content="https://mj-media.vercel.app/" />
+            <meta
+                property="twitter:title"
+                content="MJ Media"
+            />
+            <meta
+                property="twitter:description"
+                content="لبيع خدمات منصات التواصل الأجنماعى"
+            />
+            <meta 
+                property="twitter:image"
+                content="https://res.cloudinary.com/jokermo/image/upload/v1642886046/phil_desforges_Hxp_x_D_Xs_O_Ss_unsplash_3bb82b709b.jpg"
+            />
+            <meta 
+                name="twitter:site" 
+                content="MJ Media" 
+            />
+        </Head>
         <Container maxWidth="sm" style={{maxWidth: '1200px'}}>
             <Grid container spacing={3} style={{alignItems: 'start'}}>
                 <Grid item sm={12} md={6}>
                     <div style={{marginTop: '60px'}}>
                         <h2 className={classes.title}>انشأ حملتك الأعلانية الأن!</h2>
                         <div className={classes.card}>
-                            <img src="/icons/facebook.png" />
+                            <img src="/icons/facebook.png" alt="انشأ حملتك الأعلانية الأن" />
                             <div>
                                 <strong>فيس يوك</strong>
                                 <p>زيادة متابعيك وجمهورك على وسائل التواصل الأجتماعى!</p>
                             </div>
                         </div>
                         <div className={classes.card}>
-                            <img src="/icons/instgram.png" />
+                            <img src="/icons/instgram.png" alt="انشأ حملتك الأعلانية الأن" />
                             <div>
                                 <strong>انستاجرام</strong>
                                 <p>زيادة متابعيك وجمهورك على وسائل التواصل الأجتماعى!</p>
                             </div>
                         </div>
                         <div className={classes.card}>
-                            <img src="/icons/google.png" />
+                            <img src="/icons/google.png" alt="انشأ حملتك الأعلانية الأن" />
                             <div>
                                 <strong>فيس يوك</strong>
                                 <p>زيادة متابعيك وجمهورك على وسائل التواصل الأجتماعى!</p>
@@ -71,7 +121,7 @@ function MarktingPage() {
                     <Grid item md={6}>
                         <h2 className={classes.title}>انشأ حملتك الأعلانية الأن!</h2>
                         <p style={{marginBottom: '20px'}}> زيادة متابعيك وجمهورك على وسائل التواصل الأجتماعى زيادة متابعيك وجمهورك على وسائل التواصل الأجتماعى!</p>
-                        <div style={{display: 'flex'}}>
+                        <div className={classes.btnCont}>
                             <ButtonSocial icon="facebook-app-symbol.png">
                                 فيس بوك
                             </ButtonSocial>
@@ -88,6 +138,7 @@ function MarktingPage() {
                 </Grid>
             </div>
         </Container>
+    </>
     )
 }
 

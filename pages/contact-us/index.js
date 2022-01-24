@@ -32,21 +32,21 @@ function ContactUs() {
                                 <Link href="">
                                     <a target="_blank">
                                         <span>
-                                            <img src="/icons/facebook-app-symbol.png" />
+                                            <img src="/icons/facebook-app-symbol.png" alt="massenger" />
                                         </span>
                                     </a>
                                 </Link>
                                 <Link href="https://wa.me/01208128876">
                                     <a target="_blank">
                                         <span>
-                                            <img src="/icons/whatsapp.png" />
+                                            <img src="/icons/whatsapp.png" alt="whatsApp" />
                                         </span>
                                     </a>
                                 </Link>
                                 <Link href="">
                                     <a target="_blank">
                                         <span>
-                                            <img src="/icons/gmail.png" />
+                                            <img src="/icons/gmail.png" alt="gmail" />
                                         </span>
                                     </a>
                                 </Link>

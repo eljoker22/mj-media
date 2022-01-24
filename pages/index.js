@@ -1,7 +1,6 @@
 import {useRef} from 'react';
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
+import Head from 'next/head';
+import Link from 'next/link';
 import Container from '@mui/material/Container';
 import classes from '../styles/Home.module.css';
 import Grid from '@mui/material/Grid';
@@ -21,6 +20,7 @@ export default function Home({services}) {
       behavior: 'smooth'
     })
   }
+
   return (
     <>
     <Container maxWidth="sm" style={{maxWidth: '1200px'}}>
