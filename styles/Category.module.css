@@ -1,3 +1,43 @@
 .CategoryPage h1{
     text-align: center;
 }
+.types{
+    text-align: center;
+}
+.arabFilter{
+    margin-top: 20px;
+}
+.arabFilter > div{
+    display: flex;
+    justify-content: center;
+}
+.arabFilter button{
+    display: block;
+    width: 200px;
+}
+
+@media (max-width: 768px) { 
+    .types{
+        display: flex;
+        justify-content: right;
+        overflow-x: auto;
+        margin-left: -16px;
+    }
+    .types::-webkit-scrollbar{
+        background: #fff;
+    }
+    .arabFilter{
+        margin-top: 10px;
+    }
+    .arabFilter > div{
+        display: block;
+    }
+    .arabFilter button{
+        width: 100%;
+        text-align: right;
+        font-size: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        overflow: hidden;
+    }
+}

@@ -11,6 +11,7 @@ export default function PlansPage({category}) {
     const plans = category && category.data[0] ? category.data[0].attributes.plans.data : [];
     const [types, setTypes] = useState([]);
     const [activeType, setActiveType] = useState(null);
+    const [arab, setArab] = useState(false);
     useEffect(() => {
         if (plans.length > 0) {
             const typeArr = [];
@@ -36,7 +37,7 @@ export default function PlansPage({category}) {
                 <div key={caty.attributes.title} className={classes.CategoryPage}>
                     <Container className="page-container" maxWidth="sm" style={{maxWidth: '1200px'}}>
                         <h1>{caty.attributes.title}</h1>
-                        <div style={{textAlign: 'center'}}>
+                        <div className={classes.types}>
                             {plans.length > 0 && types.map((type) => (
                                 <a key={type} onClick={() => setActiveType(type)}>
                                 <ButtonFilter active={type === activeType ? true : false}>
@@ -45,21 +46,42 @@ export default function PlansPage({category}) {
                                 </a>
                             ))}
                         </div>
+                        <div style={{textAlign: 'center'}}>
+                            {plans.length > 0 && 
+                                <div className={classes.arabFilter}>
+                                <div>
+                                    <a onClick={() => setArab(true)}>
+                                        <ButtonFilter active={arab ? true : false}>
+                                            عرب فقط
+                                        </ButtonFilter>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a onClick={() => setArab(false)}>
+                                        <ButtonFilter active={!arab ? true : false}>
+                                            جميع انحاء العالم
+                                        </ButtonFilter>
+                                    </a>
+                                </div>
+                                </div>
+                            }
+                        </div>
                         <Grid container spacing={3} style={{margin: '20px 0'}}>
                             {plans.length > 0 ? plans.map(plan => {
+                                const arabActive = plan.attributes.arab_follower === arab ? true : false;
                                 const active = plan.attributes.types.data.attributes.name === activeType ? true : false;
                                 
-                                return active && <Grid key={plan.id} item xs={12} sm={12} md={3}>
-                                                    <CardPlan 
-                                                    id={plan.id}
-                                                    title={plan.attributes.title} 
-                                                    price={plan.attributes.price}
-                                                    arab={plan.attributes.arab_follower}
-                                                    image={caty.attributes.image.data.attributes.url}
-                                                    color={plan.attributes.color}
-                                                    active={active}
-                                                    />
-                                                </Grid>
+                                return active && arabActive && <Grid key={plan.id} item xs={12} sm={12} md={3}>
+                                                        <CardPlan 
+                                                        id={plan.id}
+                                                        title={plan.attributes.title} 
+                                                        price={plan.attributes.price}
+                                                        arab={plan.attributes.arab_follower}
+                                                        image={caty.attributes.image.data.attributes.url}
+                                                        color={plan.attributes.color}
+                                                        active={active && arabActive ? true : false}
+                                                        />
+                                                    </Grid>
                             })
                             : 
                             <h3>لا توجد باقات فى الوقت الحالى ولكن ستضاف قريبا.</h3>}
