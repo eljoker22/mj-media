@@ -7,7 +7,7 @@ function SinglePost({post}) {
     return(
     <>
         <Container className="page-container" maxWidth="sm" style={{maxWidth: '1200px'}}>
-            {post.data.map((p) => (
+            {post && post.data.map((p) => (
                 <>
                     <Head>
                     <title>MJ Media - {p.attributes.title}</title>
