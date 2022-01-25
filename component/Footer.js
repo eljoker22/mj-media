@@ -7,7 +7,7 @@ function Footetr() {
 
     useEffect(() => {
         const getLinks = async () => {
-            const res = await fetch(`https://social-media-shop.herokuapp.com/api/navgetions`);
+            const res = await fetch(`${process.env.API_URL}/navgetions`);
             const data = await res.json();
             setLinks(data.data);
         } 

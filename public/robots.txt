@@ -1,4 +1,5 @@
 User-agent: *
-Allow: /
+Disallow: /checkout/
+Disallow: /contact-us/
 
-Sitemap: http://localhost:3000/api/my-sitemap
+Sitemap: https://mj-media.vercel.app/sitemap.xml
