@@ -3,7 +3,6 @@ import {CardSection} from '../Cards';
 import Grid from '@mui/material/Grid';
 
 function ServicesSection({services, myRef}) {
-    console.log(services);
     
     return(
         <section ref={myRef} className={classes.serviceSection}>

@@ -13,7 +13,7 @@ function Footetr() {
         } 
         getLinks();
     }, [])
-    console.log(links)
+
     return(
         <footer className={classes.footer}>
             <div className={classes.topFooter}>

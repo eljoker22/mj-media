@@ -121,8 +121,6 @@ function CheckoutPage({plan}) {
                                     }
                                 })
                             })
-                            console.log(data);
-                            console.log(details);
                         }).then(() => setPopup(true))
                     }}
                 />
