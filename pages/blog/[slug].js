@@ -35,7 +35,7 @@ function SinglePost({post}) {
                     />
                     <meta 
                         property="og:image"
-                        content="https://res.cloudinary.com/jokermo/image/upload/v1642886046/phil_desforges_Hxp_x_D_Xs_O_Ss_unsplash_3bb82b709b.jpg"
+                        content={p.attributes.thumbnail.data.attributes.url}
                     />
                     <meta 
                         property="og:site_name" 
@@ -57,7 +57,7 @@ function SinglePost({post}) {
                     />
                     <meta 
                         property="twitter:image"
-                        content="https://res.cloudinary.com/jokermo/image/upload/v1642886046/phil_desforges_Hxp_x_D_Xs_O_Ss_unsplash_3bb82b709b.jpg"
+                        content={p.attributes.thumbnail.data.attributes.url}
                     />
                     <meta 
                         name="twitter:site" 
