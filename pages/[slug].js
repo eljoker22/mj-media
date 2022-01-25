@@ -100,16 +100,16 @@ export default function PlansPage({category}) {
                             {plans.length > 0 && 
                                 <div className={classes.arabFilter}>
                                 <div>
-                                    <a onClick={() => setArab(true)}>
-                                        <ButtonFilter active={arab ? true : false}>
-                                            عرب فقط
+                                    <a onClick={() => setArab(false)}>
+                                        <ButtonFilter active={!arab ? true : false}>
+                                            جميع انحاء العالم
                                         </ButtonFilter>
                                     </a>
                                 </div>
                                 <div>
-                                    <a onClick={() => setArab(false)}>
-                                        <ButtonFilter active={!arab ? true : false}>
-                                            جميع انحاء العالم
+                                    <a onClick={() => setArab(true)}>
+                                        <ButtonFilter active={arab ? true : false}>
+                                            عرب فقط
                                         </ButtonFilter>
                                     </a>
                                 </div>
