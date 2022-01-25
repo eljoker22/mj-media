@@ -15,7 +15,7 @@ export default function Header() {
     const mediaQuery = useMediaQuery(`(max-width: 768px)`);
     useEffect(() => {
         const getServices = async () => {
-            const res = await fetch(`https://social-media-shop.herokuapp.com/api/services`);
+            const res = await fetch(`${process.env.API_URL}/services`);
             const data = await res.json();
             setServices(data)
         }
@@ -32,7 +32,7 @@ export default function Header() {
     }, []);
 
     useEffect(() => {
-        !services ? dispatch(loadingSwitcher(true)) : dispatch(loadingSwitcher(false));
+        !services ? dispatch(loadingSwitcher(false)) : dispatch(loadingSwitcher(false));
     }, [services]);
 
     return(
@@ -44,10 +44,10 @@ export default function Header() {
                     <nav>
                         <ul>
                         {services && services.data.map((service) => (
-                            <Link key={service.id} href={`/${service.attributes.link.replace(' ', '-')}`}>
+                            <Link key={service.id} href={`/${service.attributes.link.split(' ').join('-')}`}>
                                 <a 
                                 className={router.query.slug ? 
-                                    router.query.slug === service.attributes.link.replace(' ', '-') ? 
+                                    router.query.slug === service.attributes.link.split(' ').join('-') ? 
                                     classes.active 
                                     : '' 
                                 : router.pathname.replace('/', '') === service.attributes.link ? classes.active : ''}>

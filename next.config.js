@@ -9,5 +9,10 @@ module.exports = {
   images: {
     domains: ['res.cloudinary.com'],
   },
-
+  rewrites: async () => [
+    {
+      source: '/sitemap.xml',
+      destination: '/api/sitemap',
+    },
+  ],
 };
