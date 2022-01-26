@@ -19,9 +19,15 @@
 .logo{
     font-size: 25px;
     font-weight: 700;
+    display: flex;
+    align-items: center;
 }
 .logo span{
     color: var(--primary);
+}
+.logo img{
+    width: 200px;
+    height: auto;
 }
 .header ul{
     list-style: none;

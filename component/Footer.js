@@ -17,7 +17,14 @@ function Footetr() {
     return(
         <footer className={classes.footer}>
             <div className={classes.topFooter}>
-                <div className={classes.logo}><span>MJ</span> Media.</div>
+                    <Link href="/">
+                    <a>
+                        <div className={classes.logo}>
+                            <img src="/logo.png" alt="MJ Media" />
+                        </div>
+                    </a>
+                    </Link>
+
                 <nav>
                     <ul>
                     {links && links.map((link) => (
@@ -35,10 +42,8 @@ function Footetr() {
                     <img src="/icons/visa.png" alt="Visa" />
                     <img src="/icons/paypal2.png" alt="paypal" />
                 </div>
-                <p>
-                    Copyright &copy; 2022 {'  '}
-                    <span className={classes.logo}><span>MJ</span> Media.</span> 
-                    {'  '}  all right reserved.
+                <p style={{color: '#555'}}>
+                    &copy; كل الحقوق محفوظة MJ Media
                 </p>
             </div>
         </footer>

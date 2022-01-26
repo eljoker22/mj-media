@@ -39,7 +39,14 @@ export default function Header() {
             <header className={`${classes.header} ${sticky ? classes.sticky : ''}`}>
                 <Container maxWidth="sm" style={{maxWidth: '1200px'}}>
                 <div className={classes.flex}>
-                    <div className={classes.logo}><span>MJ</span> Media.</div>
+                    <Link href="/">
+                    <a>
+                        <div className={classes.logo}>
+                            <img src="/logo.png" alt="MJ Media" />
+                        </div>
+                    </a>
+                    </Link>
+                    
                     {!mediaQuery && 
                     <nav>
                         <ul>
