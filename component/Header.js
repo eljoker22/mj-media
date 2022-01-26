@@ -32,7 +32,7 @@ export default function Header() {
     }, []);
 
     useEffect(() => {
-        !services ? dispatch(loadingSwitcher(false)) : dispatch(loadingSwitcher(false));
+        !services ? dispatch(loadingSwitcher(true)) : dispatch(loadingSwitcher(false));
     }, [services]);
 
     return(

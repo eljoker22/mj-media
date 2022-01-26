@@ -9,6 +9,7 @@
     align-items: center;
 }
 .sticky{
+    padding: 5px 0;
     position: fixed;
     left: 0;
     right: 0;
@@ -28,6 +29,9 @@
 .logo img{
     width: 200px;
     height: auto;
+}
+.logo img:hover{
+    opacity: 0.7;
 }
 .header ul{
     list-style: none;
