@@ -54,4 +54,7 @@ p .logo{
     .topFooter{
         display: block;
     }
+    .logo{
+        justify-content: center;
+    }
 }
