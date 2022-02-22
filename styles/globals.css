@@ -61,7 +61,7 @@ ul{
   opacity: 1;
 }
 .loader img{
-  width: 96px;
+  width: 160px;
   animation: loader 1s ease-in-out infinite;
 }
 
