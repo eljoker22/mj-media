@@ -2,7 +2,7 @@
 function Loading({loading}) {
     return(
         <div className={`loader ${loading ? 'active' : ''}`}>
-            <img src="/icon-logo.png" alt="MJ Media" />
+            <img src="/favicon-96x96.png" alt="MJ Media" />
         </div>
     )
 }
