@@ -29,27 +29,24 @@ function ContactUs() {
                                 <SvgEmail />
                             </div>
                             <div className={classes.icons}>
-                                <Link href="">
-                                    <a target="_blank">
+                                    <a target="_blank" href="https://www.facebook.com/MJ.MEDIA1/">
                                         <span>
                                             <img src="/icons/facebook-app-symbol.png" alt="massenger" />
                                         </span>
                                     </a>
-                                </Link>
-                                <Link href="https://wa.me/01208128876">
-                                    <a target="_blank">
+
+                                    <a target="_blank" href="https://wa.me/01201852421">
                                         <span>
                                             <img src="/icons/whatsapp.png" alt="whatsApp" />
                                         </span>
                                     </a>
-                                </Link>
-                                <Link href="">
-                                    <a target="_blank">
+
+                                    <a target="_blank" href="https://mail.google.com/mail/u/0/#search/mjmediasponser@gmail.com">
                                         <span>
                                             <img src="/icons/gmail.png" alt="gmail" />
                                         </span>
                                     </a>
-                                </Link>
+
                             </div>
                         </div>
                     </Grid>

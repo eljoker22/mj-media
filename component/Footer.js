@@ -19,8 +19,11 @@ function Footetr() {
             <div className={classes.topFooter}>
                     <Link href="/">
                     <a>
-                        <div className={classes.logo}>
-                            <img src="/logo.png" alt="MJ Media" />
+                        <div className={classes.social}>
+                            <a href="https://www.facebook.com/MJ.MEDIA1/"><img src="/icons/facebook.png" alt="facebook" /></a>
+                            <a href="https://youtube.com/channel/UCkS_rmUqS6xPG8C0pe6TptQ"><img src="/icons/youtube.png" alt="youtube" /></a>
+                            <a href="https://www.instagram.com/mj_media_0/"><img src="/icons/instgram.png" alt="instgram" /></a>
+                            <a href="https://mobile.twitter.com/Mjmedia8"><img src="/icons/twitter.png" alt="twitter" /></a>
                         </div>
                     </a>
                     </Link>
