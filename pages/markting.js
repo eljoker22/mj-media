@@ -122,12 +122,12 @@ function MarktingPage() {
                         <h2 className={classes.title}>انشأ حملتك الأعلانية الأن!</h2>
                         <p style={{marginBottom: '20px'}}> زيادة متابعيك وجمهورك على وسائل التواصل الأجتماعى عن طريق حملتك الأعلانية على مختلف المنصات</p>
                         <div className={classes.btnCont}>
-                            <a target="_blank" href="https://www.facebook.com/MJ.MEDIA1/">
+                            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/MJ.MEDIA1/">
                             <ButtonSocial icon="facebook-app-symbol.png">
                                 فيس بوك
                             </ButtonSocial>
                             </a>
-                            <a target="_blank" href="https://wa.me/01201852421">
+                            <a target="_blank" rel="noreferrer" href="https://wa.me/01201852421">
                             <ButtonSocial icon="whatsapp.png">
                                 واتساب
                             </ButtonSocial>
