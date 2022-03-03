@@ -27,7 +27,7 @@
     color: var(--primary);
 }
 .logo img{
-    width: 200px;
+    width: 85px;
     height: auto;
 }
 .logo img:hover{
