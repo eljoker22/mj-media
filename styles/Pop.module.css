@@ -24,7 +24,7 @@
     margin-bottom: 3px;
 }
 .btnClose{
-    position: absolute;
+    position: absolute !important;
     left: 10px;
     top: 10px;
 }

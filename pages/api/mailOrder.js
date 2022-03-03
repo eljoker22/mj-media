@@ -6,14 +6,19 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
         const body = JSON.parse(req.body);
         const data = {
-            to: 'yussremohamed@gmail.com',
-            from: 'clients@mj-mediaa.com',
-            subject: 'support mj media',
-            templateId: 'd-a36e94ec40be4520a2af1130224fe894',
+            to: body.email,
+            from: {
+                email: 'mjmedia@mj-mediaa.com',
+                name: 'MJ Media'
+            },
+            subject: 'Order Details',
+            templateId: 'd-71e916a2b6bb4556a2aca7b98cce0385',
             dynamic_template_data: {
-                name: body.name,
-                email: body.email,
-                msg: body.msg
+                orderId: body.orderId,
+                name: body.clinetName,
+                plan: body.plan,
+                price: body.price,
+                date: body.dateOrder,
             },
         };
             mail.send(data).then(() => { console.log('succes') }).catch((err) => console.log(err));

@@ -104,7 +104,7 @@ function CheckoutPage({plan}) {
                             const amountPay = details.purchase_units[0].amount.value;
                             const currency = details.purchase_units[0].amount.currency_code;    
                             const status = details.status === 'COMPLETED' ? true : false;
-                            
+                            const d = new Date();
                             fetch('/api/createOrder', {
                                 method: 'post',
                                 body: JSON.stringify({
@@ -119,6 +119,17 @@ function CheckoutPage({plan}) {
                                         currency: currency,
                                         completed: status,
                                     }
+                                })
+                            })
+                            fetch('/api/mailOrder', {
+                                method: 'post',
+                                body: JSON.stringify({
+                                    orderId: data.orderID.toString(),
+                                    plan: planName,
+                                    clinetName: name,
+                                    email: email,
+                                    price: amountPay,
+                                    dateOrder: d.toUTCString(),
                                 })
                             })
                         }).then(() => setPopup(true))
